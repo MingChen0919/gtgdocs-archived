@@ -9,7 +9,7 @@ chapter: true
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-## Galaxy Tool Generator
+# Galaxy Tool Generator Documentation
 
-Galaxy Tool Generator (GTG) is a platform which assists Galaxy tool development through web interfaces.
+**Galaxy Tool Generator (GTG)** is a platform which allows devloping Galaxy tool through web interfaces.
 
