@@ -1,4 +1,14 @@
 theme = "hugo-theme-learn"
 baseURL = "http://example.org/"
 languageCode = "en-us"
-title = "My New Hugo Site"
+title = "Galaxy Tool Generator (GTG)"
+
+relativeurls = true
+publishDir = "docs"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+[params]
+  # Change default color scheme with a variant one. Can be "red", "blue", "green".
+  themeVariant = "blue"
