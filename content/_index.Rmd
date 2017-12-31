@@ -1,0 +1,15 @@
+---
+title: "Galaxy Tool Generator Docs?"
+author: "Ming Chen"
+output: html_document
+chapter: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Galaxy Tool Generator
+
+Galaxy Tool Generator (GTG) is a platform which assists Galaxy tool development through web interfaces.
+
