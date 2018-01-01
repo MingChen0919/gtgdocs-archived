@@ -6,8 +6,12 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 **Galaxy Tool Generator (GTG)** is a platform which allows devloping Galaxy tool through web interfaces.
+
+```{r}
+knitr::include_graphics('/about-gtg/images/gtg-about.png')
+```
 
