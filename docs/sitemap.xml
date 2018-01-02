@@ -11,6 +11,10 @@
   </url>
   
   <url>
+    <loc>/develop-galaxy-tools/</loc>
+  </url>
+  
+  <url>
     <loc>/categories/</loc>
     <priority>0</priority>
   </url>

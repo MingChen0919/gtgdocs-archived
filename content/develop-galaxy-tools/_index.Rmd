@@ -1,0 +1,12 @@
+---
+weight: 3
+title: "Develop Galaxy Tools"
+author: "Ming Chen"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
