@@ -10,7 +10,7 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
 
-    <title>About GTG :: Galaxy Tool Generator (GTG)</title>
+    <title>Get Started :: Galaxy Tool Generator (GTG)</title>
     
     
     <link href="../css/nucleus.css?1514920166" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/about-gtg/">
+  <body class="" data-url="/get-started/">
     <nav id="sidebar" class="">
 
 
@@ -77,8 +77,8 @@
   
     
     <li data-nav-id="/about-gtg/" title="About GTG" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../about-gtg/">
@@ -99,8 +99,8 @@
   
     
     <li data-nav-id="/get-started/" title="Get Started" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="../get-started/">
@@ -160,7 +160,7 @@
             
           
           
-            <a href='../'>Galaxy Tool Generator Documentation</a> > About GTG
+            <a href='../'>Galaxy Tool Generator Documentation</a> > Get Started
           
          
           
@@ -182,31 +182,58 @@
         
         <div id="body-inner">
           
-            <h1>About GTG</h1>
+            <h1>Get Started</h1>
           
 
         
 
 
-<p><strong>Galaxy Tool Generator (GTG)</strong> is a platform which allows devloping Galaxy tool through web interfaces.</p>
-<p><img src="../about-gtg/images/gtg-about.png" /><!-- --></p>
-<div id="gtg-components" class="section level2">
-<h2>GTG components</h2>
-<p><strong>The GTG platform consists of three components</strong>:</p>
-<ul>
-<li><a href="https://github.com/MingChen0919/gtgdocs/tree/master/gtg_modules">two Drupal modules</a>: <strong>galaxy_tool_generator</strong> and <strong>galaxy_tool_generator_ui</strong>.
-<ul>
-<li>the <strong>galaxy_tool_generator</strong> module maps each <a href="https://docs.galaxyproject.org/en/master/dev/schema.html">Galaxy tool config</a> XML elements to a drupal webform components. The “Type” column in the figure table below is an example of showing the mapping between XML elements and webform components.</li>
-<li>the <strong>galaxy_tool_generator_ui</strong> module builds user interfaces</li>
-</ul>
-<p><img src="../about-gtg/images/tool-xml-mapping.png" /><!-- --></p></li>
-<li><p><a href="https://github.com/MingChen0919/gtgdocker"><strong>gtgdocker</strong></a>: a docker image that wraps a drupal site with the two GTG modules installed.</p></li>
-<li><p><a href="https://github.com/MingChen0919/gtgr"><strong>gtgr</strong></a>: an R package that launches, stops and deletes the GTG platform.</p></li>
-</ul>
+<style>
+pre code, pre, code {
+  white-space: pre !important;
+  overflow-x: scroll !important;
+  word-break: keep-all !important;
+  word-wrap: initial !important;
+}
+</style>
+<div id="install-r-package-gtgr" class="section level2">
+<h2>Install R package <strong>gtgr</strong></h2>
+<p><strong>gtgr</strong> is available from GitHub. We can use the <code>devtools::install_github()</code> function to install R packages from GitHub.</p>
+<p>First, we need to install the <strong>devtools</strong> package.</p>
+<pre class="r"><code>install.packages(&#39;devtools&#39;)</code></pre>
+<p>Now install <strong>gtgr</strong></p>
+<pre class="r"><code>devtools::install_github(&#39;mingchen0919/gtgr&#39;)</code></pre>
 </div>
-<div id="requirements" class="section level2">
-<h2>Requirements</h2>
-<p>The GTG platform runs as a Docker container and is controled by the R package <strong>gtgr</strong>. Therefore, <a href="https://www.docker.com/"><strong>Docker</strong></a> and <a href="https://www.r-project.org/"><strong>R</strong></a> are required.</p>
+<div id="launch-a-gtg-instance" class="section level2">
+<h2>Launch a GTG instance</h2>
+<p>After successfully installing the <strong>gtgr</strong> package, we can launch a GTG platform with the <code>start_new_gtg()</code> function. You need to specify a GTG working directory. All output files will be in this directory.</p>
+<pre class="r"><code>library(gtgr)
+start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#39;)</code></pre>
+<p>This will open a GTG platform on your browser.</p>
+</div>
+<div id="launch-a-galaxy-instance" class="section level2">
+<h2>Launch a Galaxy instance</h2>
+<p>Some functionalities of the GTG platform depends on a running Docker Galaxy. We can launch a Galaxy instance with <code>launch_galaxy()</code>. You need to specify a GTG instance name so that the Galaxy instance can be connected with it. Here we use ‘gtg’, which is what we used in the previous step. Currently, <strong>gtg</strong> is only compatible with the Galaxy Docker image created by <a href="https://github.com/bgruening/docker-galaxy-stable">Björn Grüning</a></p>
+<pre class="r"><code>launch_galaxy(gtg_name = &#39;gtg&#39;)</code></pre>
+<p>This will open a Galaxy instance on your browser.</p>
+<p>To list all GTGs and Galaxy instances, use the <code>list_gtg()</code>:</p>
+<pre class="r"><code>list_gtg()</code></pre>
+<p>This is basically the same as running a command line <code>docker ps -a</code> from within a terminal.</p>
+<pre class="r"><code>  CONTAINER ID                         IMAGE                COMMAND           CREATED           STATUS                                   PORTS  NAMES
+1 a53d3a6cbb88 bgruening/galaxy-stable:17.01              &quot;startup&quot; About an hour ago Up About an hour 21/tcp, 443/tcp, 8800/tcp, 9002/tcp, 80 galaxy
+2 e3300efb9cdc        mingchen0919/gtgdocker &quot;/entrypoint.sh /bin…&quot; About an hour ago Up About an hour                                    8080    gtg</code></pre>
+<p>To see a list of all availabl functions from package <strong>gtgr</strong>.</p>
+<pre class="r"><code>help(packaeg = &#39;gtgr&#39;)</code></pre>
+</div>
+<div id="gtg-working-directory" class="section level2">
+<h2>GTG working directory</h2>
+<p>The GTG working directory has three folders. The <strong>galaxy_tool_repository</strong> will contain all files generated from the GTG platform. And this is the tool repository directory that you want to publish to Galaxy Tool Shed (or Test Tool Shed). The <strong>database/</strong> and <strong>shed_tools/</strong> are two directories that mount to <strong>/export/galaxy-central/database/</strong> and <strong>/shed_tools/</strong> from [Björn Grüning]’s Galaxy Docker container.</p>
+<pre class="r"><code>.
+├── database/
+├── galaxy_tool_repository/
+└── shed_tools/</code></pre>
+<p>GTG has a user interface which allows you to map the <strong>galaxy_tool_repository/</strong> to a existing tool repository within the <strong>/shed_tools/</strong>. Therefore, you can easily test the tool developed with GTG on your running Galaxy instance. It also allows you to map an updated tool shed repository back to the <strong>galaxy_tool_repository/</strong> so that you can publish the updates to Galaxy Tool Shed (or Test Tool Shed).</p>
+<p><img src="../get-started/images/mirror-tool-repository.png" /><!-- --></p>
 </div>
 
 
@@ -245,6 +272,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -262,8 +291,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -283,10 +310,10 @@
 
 
         
-            <a class="nav nav-prev" href="../" title="Galaxy Tool Generator Documentation"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../about-gtg/" title="About GTG"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../get-started/" title="Get Started" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../about-gtg/" title="About GTG" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 

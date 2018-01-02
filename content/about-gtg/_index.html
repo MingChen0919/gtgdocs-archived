@@ -9,3 +9,21 @@ output: html_document
 
 <p><strong>Galaxy Tool Generator (GTG)</strong> is a platform which allows devloping Galaxy tool through web interfaces.</p>
 <p><img src="/about-gtg/images/gtg-about.png" /><!-- --></p>
+<div id="gtg-components" class="section level2">
+<h2>GTG components</h2>
+<p><strong>The GTG platform consists of three components</strong>:</p>
+<ul>
+<li><a href="https://github.com/MingChen0919/gtgdocs/tree/master/gtg_modules">two Drupal modules</a>: <strong>galaxy_tool_generator</strong> and <strong>galaxy_tool_generator_ui</strong>.
+<ul>
+<li>the <strong>galaxy_tool_generator</strong> module maps each <a href="https://docs.galaxyproject.org/en/master/dev/schema.html">Galaxy tool config</a> XML elements to a drupal webform components. The “Type” column in the figure table below is an example of showing the mapping between XML elements and webform components.</li>
+<li>the <strong>galaxy_tool_generator_ui</strong> module builds user interfaces</li>
+</ul>
+<p><img src="/about-gtg/images/tool-xml-mapping.png" /><!-- --></p></li>
+<li><p><a href="https://github.com/MingChen0919/gtgdocker"><strong>gtgdocker</strong></a>: a docker image that wraps a drupal site with the two GTG modules installed.</p></li>
+<li><p><a href="https://github.com/MingChen0919/gtgr"><strong>gtgr</strong></a>: an R package that launches, stops and deletes the GTG platform.</p></li>
+</ul>
+</div>
+<div id="requirements" class="section level2">
+<h2>Requirements</h2>
+<p>The GTG platform runs as a Docker container and is controled by the R package <strong>gtgr</strong>. Therefore, <a href="https://www.docker.com/"><strong>Docker</strong></a> and <a href="https://www.r-project.org/"><strong>R</strong></a> are required.</p>
+</div>
