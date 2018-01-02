@@ -6,6 +6,8 @@ title = "Galaxy Tool Generator (GTG)"
 relativeurls = true
 publishDir = "docs"
 
+ignoreFiles = ["\\.Rmd$", "\\.Rmarkdown$", "_files$", "_cache$"]
+
 [outputs]
 home = [ "HTML", "RSS", "JSON"]
 
