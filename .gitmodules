@@ -1,0 +1,12 @@
+[submodule "gtg_modules/galaxy_tool_generator_ui"]
+	path = gtg_modules/galaxy_tool_generator_ui
+	url = https://github.com/MingChen0919/galaxy_tool_generator_ui
+[submodule "gtg_modules/galaxy_tool_generator"]
+	path = gtg_modules/galaxy_tool_generator
+	url = https://github.com/MingChen0919/galaxy_tool_generator
+[submodule "gtgdocker"]
+	path = gtgdocker
+	url = https://github.com/MingChen0919/gtgdocker
+[submodule "gtgr"]
+	path = gtgr
+	url = https://github.com/MingChen0919/gtgr
