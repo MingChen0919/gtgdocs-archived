@@ -7,11 +7,39 @@
 	"content": "Galaxy Tool Generator (GTG) is a platform which allows devloping Galaxy tool through web interfaces.\nGTG components The GTG platform consists of three components:\n two Drupal modules: galaxy_tool_generator and galaxy_tool_generator_ui.  the galaxy_tool_generator module maps each Galaxy tool config XML elements to a drupal webform components. The “Type” column in the figure table below is an example of showing the mapping between XML elements and webform components. the galaxy_tool_generator_ui module builds user interfaces   gtgdocker: a docker image that wraps a drupal site with the two GTG modules installed.\n gtgr: an R package that launches, stops and deletes the GTG platform.\n   Requirements The GTG platform runs as a Docker container and is controled by the R package gtgr. Therefore, Docker and R are required.\n "
 },
 {
+	"uri": "/develop-galaxy-tools/1-from-scratch/",
+	"title": "From Scratch",
+	"tags": [],
+	"description": "",
+	"content": "  "
+},
+{
+	"uri": "/develop-galaxy-tools/2-from-r-markdown-template/",
+	"title": "From R Markdown Template",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
 	"uri": "/get-started/",
 	"title": "Get Started",
 	"tags": [],
 	"description": "",
 	"content": " pre code, pre, code { white-space: pre !important; overflow-x: scroll !important; word-break: keep-all !important; word-wrap: initial !important; }  Install R package gtgr gtgr is available from GitHub. We can use the devtools::install_github() function to install R packages from GitHub.\nFirst, we need to install the devtools package.\ninstall.packages(\u0026#39;devtools\u0026#39;) Now install gtgr\ndevtools::install_github(\u0026#39;mingchen0919/gtgr\u0026#39;)  Launch a GTG instance After successfully installing the gtgr package, we can launch a GTG platform with the start_new_gtg() function. You need to specify a GTG working directory. All output files will be in this directory.\nlibrary(gtgr) start_new_gtg(gtg_directory = \u0026#39;~/Desktop/gtg-dir\u0026#39;, gtg_name = \u0026#39;gtg\u0026#39;) This will open a GTG platform on your browser.\n Launch a Galaxy instance Some functionalities of the GTG platform depends on a running Docker Galaxy. We can launch a Galaxy instance with launch_galaxy(). You need to specify a GTG instance name so that the Galaxy instance can be connected with it. Here we use ‘gtg’, which is what we used in the previous step. Currently, gtg is only compatible with the Galaxy Docker image created by Björn Grüning\nlaunch_galaxy(gtg_name = \u0026#39;gtg\u0026#39;) This will open a Galaxy instance on your browser.\nTo list all GTGs and Galaxy instances, use the list_gtg():\nlist_gtg() This is basically the same as running a command line docker ps -a from within a terminal.\n CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 1 a53d3a6cbb88 bgruening/galaxy-stable:17.01 \u0026quot;startup\u0026quot; About an hour ago Up About an hour 21/tcp, 443/tcp, 8800/tcp, 9002/tcp, 80 galaxy 2 e3300efb9cdc mingchen0919/gtgdocker \u0026quot;/entrypoint.sh /bin…\u0026quot; About an hour ago Up About an hour 8080 gtg To see a list of all availabl functions from package gtgr.\nhelp(packaeg = \u0026#39;gtgr\u0026#39;)  GTG working directory The GTG working directory has three folders. The galaxy_tool_repository will contain all files generated from the GTG platform. And this is the tool repository directory that you want to publish to Galaxy Tool Shed (or Test Tool Shed). The database/ and shed_tools/ are two directories that mount to /export/galaxy-central/database/ and /shed_tools/ from [Björn Grüning]’s Galaxy Docker container.\n. ├── database/ ├── galaxy_tool_repository/ └── shed_tools/ GTG has a user interface which allows you to map the galaxy_tool_repository/ to a existing tool repository within the /shed_tools/. Therefore, you can easily test the tool developed with GTG on your running Galaxy instance. It also allows you to map an updated tool shed repository back to the galaxy_tool_repository/ so that you can publish the updates to Galaxy Tool Shed (or Test Tool Shed).\n "
+},
+{
+	"uri": "/develop-galaxy-tools/3-from-uploaded-xml/",
+	"title": "From Uploaded XML",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "/gtg-development-workflow/",
+	"title": "GTG Development Workflow",
+	"tags": [],
+	"description": "",
+	"content": "Galaxy tool repository and its status A Galaxy tool repository consists of one or more Galaxy tool XML files, and usually some non-XML files such as scripts and test datasets.\nWhen using the GTG system to develop Galaxy tools, a Galaxy tool repository can be at different statuses according to its location:\nTool Repository in GTG Tool Repository in Galaxy Test Tool Shed Tool Repository in associated Galaxy instance Tool Repository in Galaxy Tool Shed  Tool Repository in GTG We start Galaxy tool development by first creating some XML files in GTG. We then group these XML files and build a Galaxy tool repository from them. We can optionally add non-XML files into the tool repository. Then we publish the tool repository from GTG to the TEST Tool Shed. At this stage, it’s fine even if we don’t have a fully function tool repository. But it’s important to have the requirements section of each XML files well defined, since the requirements section defines tool dependencies which are required for the tool testing step.\n Tool Repository in Galaxy Test Tool Shed To make best use of the GTG platform for developing Galaxy tools, following the development workflow below is recommended.\n   "
 },
 {
 	"uri": "/develop-galaxy-tools/",

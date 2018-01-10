@@ -10,22 +10,22 @@
     <link rel="shortcut icon" href="../images/favicon.png" type="image/x-icon" />
 <link rel="icon" href="../images/favicon.png" type="image/x-icon" />
 
-    <title>Get Started :: Galaxy Tool Generator (GTG)</title>
+    <title>GTG workflow :: Galaxy Tool Generator (GTG)</title>
     
     
-    <link href="../css/nucleus.css?1515603382" rel="stylesheet">
-    <link href="../css/font-awesome.min.css?1515603382" rel="stylesheet">
-    <link href="../css/hybrid.css?1515603382" rel="stylesheet">
-    <link href="../css/featherlight.min.css?1515603382" rel="stylesheet">
-    <link href="../css/perfect-scrollbar.min.css?1515603382" rel="stylesheet">
-    <link href="../css/auto-complete.css?1515603382" rel="stylesheet">
-    <link href="../css/theme.css?1515603382" rel="stylesheet">
-    <link href="../css/hugo-theme.css?1515603382" rel="stylesheet">
+    <link href="../css/nucleus.css?1515598830" rel="stylesheet">
+    <link href="../css/font-awesome.min.css?1515598830" rel="stylesheet">
+    <link href="../css/hybrid.css?1515598830" rel="stylesheet">
+    <link href="../css/featherlight.min.css?1515598830" rel="stylesheet">
+    <link href="../css/perfect-scrollbar.min.css?1515598830" rel="stylesheet">
+    <link href="../css/auto-complete.css?1515598830" rel="stylesheet">
+    <link href="../css/theme.css?1515598830" rel="stylesheet">
+    <link href="../css/hugo-theme.css?1515598830" rel="stylesheet">
     
-      <link href="../css/theme-blue.css?1515603382" rel="stylesheet">
+      <link href="../css/theme-blue.css?1515598830" rel="stylesheet">
     
 
-    <script src="../js/jquery-2.x.min.js?1515603382"></script>
+    <script src="../js/jquery-2.x.min.js?1515598830"></script>
     
     <style type="text/css">
       :root #header + #content > #left > #rlblock_left{ 
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/get-started/">
+  <body class="" data-url="/gtg-workflow/">
     <nav id="sidebar" class="">
 
 
@@ -53,14 +53,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="../js/lunr.min.js?1515603382"></script>
-<script type="text/javascript" src="../js/auto-complete.js?1515603382"></script>
+<script type="text/javascript" src="../js/lunr.min.js?1515598830"></script>
+<script type="text/javascript" src="../js/auto-complete.js?1515598830"></script>
 <script type="text/javascript">
     
         var baseurl = "\/";
     
 </script>
-<script type="text/javascript" src="../js/search.js?1515603382"></script>
+<script type="text/javascript" src="../js/search.js?1515598830"></script>
 
     
   </div>
@@ -99,8 +99,8 @@
   
     
     <li data-nav-id="/get-started/" title="Get Started" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="../get-started/">
@@ -120,13 +120,13 @@
  
   
     
-    <li data-nav-id="/gtg-development-workflow/" title="GTG Development Workflow" class="dd-item 
-        
-        
+    <li data-nav-id="/gtg-workflow/" title="GTG workflow" class="dd-item 
+        parent
+        active
         
         ">
-      <a href="../gtg-development-workflow/">
-          GTG Development Workflow
+      <a href="../gtg-workflow/">
+          GTG workflow
           
       </a>
       
@@ -271,7 +271,7 @@
             
           
           
-            <a href='../'>Galaxy Tool Generator Documentation</a> > Get Started
+            <a href='../'>Galaxy Tool Generator Documentation</a> > GTG workflow
           
          
           
@@ -293,59 +293,27 @@
         
         <div id="body-inner">
           
-            <h1>Get Started</h1>
+            <h1>GTG workflow</h1>
           
 
         
 
 
-<style>
-pre code, pre, code {
-  white-space: pre !important;
-  overflow-x: scroll !important;
-  word-break: keep-all !important;
-  word-wrap: initial !important;
-}
-</style>
-<div id="install-r-package-gtgr" class="section level2">
-<h2>Install R package <strong>gtgr</strong></h2>
-<p><strong>gtgr</strong> is available from GitHub. We can use the <code>devtools::install_github()</code> function to install R packages from GitHub.</p>
-<p>First, we need to install the <strong>devtools</strong> package.</p>
-<pre class="r"><code>install.packages(&#39;devtools&#39;)</code></pre>
-<p>Now install <strong>gtgr</strong></p>
-<pre class="r"><code>devtools::install_github(&#39;mingchen0919/gtgr&#39;)</code></pre>
+<div class="notices tip" ><p>To make best use of the GTG platform for developing Galaxy tools, following the workflow below is recommended.</p>
 </div>
-<div id="launch-a-gtg-instance" class="section level2">
-<h2>Launch a GTG instance</h2>
-<p>After successfully installing the <strong>gtgr</strong> package, we can launch a GTG platform with the <code>start_new_gtg()</code> function. You need to specify a GTG working directory. All output files will be in this directory.</p>
-<pre class="r"><code>library(gtgr)
-start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#39;)</code></pre>
-<p>This will open a GTG platform on your browser.</p>
-</div>
-<div id="launch-a-galaxy-instance" class="section level2">
-<h2>Launch a Galaxy instance</h2>
-<p>Some functionalities of the GTG platform depends on a running Docker Galaxy. We can launch a Galaxy instance with <code>launch_galaxy()</code>. You need to specify a GTG instance name so that the Galaxy instance can be connected with it. Here we use ‘gtg’, which is what we used in the previous step. Currently, <strong>gtg</strong> is only compatible with the Galaxy Docker image created by <a href="https://github.com/bgruening/docker-galaxy-stable">Björn Grüning</a></p>
-<pre class="r"><code>launch_galaxy(gtg_name = &#39;gtg&#39;)</code></pre>
-<p>This will open a Galaxy instance on your browser.</p>
-<p>To list all GTGs and Galaxy instances, use the <code>list_gtg()</code>:</p>
-<pre class="r"><code>list_gtg()</code></pre>
-<p>This is basically the same as running a command line <code>docker ps -a</code> from within a terminal.</p>
-<pre class="r"><code>  CONTAINER ID                         IMAGE                COMMAND           CREATED           STATUS                                   PORTS  NAMES
-1 a53d3a6cbb88 bgruening/galaxy-stable:17.01              &quot;startup&quot; About an hour ago Up About an hour 21/tcp, 443/tcp, 8800/tcp, 9002/tcp, 80 galaxy
-2 e3300efb9cdc        mingchen0919/gtgdocker &quot;/entrypoint.sh /bin…&quot; About an hour ago Up About an hour                                    8080    gtg</code></pre>
-<p>To see a list of all availabl functions from package <strong>gtgr</strong>.</p>
-<pre class="r"><code>help(packaeg = &#39;gtgr&#39;)</code></pre>
-</div>
-<div id="gtg-working-directory" class="section level2">
-<h2>GTG working directory</h2>
-<p>The GTG working directory has three folders. The <strong>galaxy_tool_repository</strong> will contain all files generated from the GTG platform. And this is the tool repository directory that you want to publish to Galaxy Tool Shed (or Test Tool Shed). The <strong>database/</strong> and <strong>shed_tools/</strong> are two directories that mount to <strong>/export/galaxy-central/database/</strong> and <strong>/shed_tools/</strong> from [Björn Grüning]’s Galaxy Docker container.</p>
-<pre class="r"><code>.
-├── database/
-├── galaxy_tool_repository/
-└── shed_tools/</code></pre>
-<p>GTG has a user interface which allows you to map the <strong>galaxy_tool_repository/</strong> to a existing tool repository within the <strong>/shed_tools/</strong>. Therefore, you can easily test the tool developed with GTG on your running Galaxy instance. It also allows you to map an updated tool shed repository back to the <strong>galaxy_tool_repository/</strong> so that you can publish the updates to Galaxy Tool Shed (or Test Tool Shed).</p>
-<p><img src="../get-started/images/mirror-tool-repository.png" /><!-- --></p>
-</div>
+
+<ol style="list-style-type: decimal">
+<li>Launch a GTG platform</li>
+<li>Launch a Galaxy instance</li>
+<li>Create XMLs</li>
+<li>Edit XML components</li>
+<li>Build Tool Repository</li>
+<li>Add non-XMLs to Tool Repository</li>
+<li>Publish tool repository to Test Tool Shed</li>
+<li>Install tool from Test Tool Shed in Galaxy</li>
+<li>Test tool</li>
+<li></li>
+</ol>
 
 
 <footer class=" footline" >
@@ -402,6 +370,22 @@ start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
                     
                 
                 
@@ -429,38 +413,6 @@ start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#
                     
                     
 
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
                     
                         
             
@@ -494,6 +446,22 @@ start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -504,10 +472,10 @@ start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#
 
 
         
-            <a class="nav nav-prev" href="../about-gtg/" title="About GTG"> <i class="fa fa-chevron-left"></i></a>
+            <a class="nav nav-prev" href="../get-started/" title="Get Started"> <i class="fa fa-chevron-left"></i></a>
         
         
-            <a class="nav nav-next" href="../gtg-development-workflow/" title="GTG Development Workflow" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+            <a class="nav nav-next" href="../develop-galaxy-tools/" title="Develop Galaxy Tools" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
         
     </div>
 
@@ -516,20 +484,20 @@ start_new_gtg(gtg_directory = &#39;~/Desktop/gtg-dir&#39;, gtg_name = &#39;gtg&#
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="../js/clipboard.min.js?1515603382"></script>
-    <script src="../js/perfect-scrollbar.min.js?1515603382"></script>
-    <script src="../js/perfect-scrollbar.jquery.min.js?1515603382"></script>
-    <script src="../js/jquery.sticky.js?1515603382"></script>
-    <script src="../js/featherlight.min.js?1515603382"></script>
-    <script src="../js/html5shiv-printshiv.min.js?1515603382"></script>
-    <script src="../js/highlight.pack.js?1515603382"></script>
+    <script src="../js/clipboard.min.js?1515598830"></script>
+    <script src="../js/perfect-scrollbar.min.js?1515598830"></script>
+    <script src="../js/perfect-scrollbar.jquery.min.js?1515598830"></script>
+    <script src="../js/jquery.sticky.js?1515598830"></script>
+    <script src="../js/featherlight.min.js?1515598830"></script>
+    <script src="../js/html5shiv-printshiv.min.js?1515598830"></script>
+    <script src="../js/highlight.pack.js?1515598830"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="../js/modernizr.custom.71422.js?1515603382"></script>
-    <script src="../js/learn.js?1515603382"></script>
-    <script src="../js/hugo-learn.js?1515603382"></script>
+    <script src="../js/modernizr.custom.71422.js?1515598830"></script>
+    <script src="../js/learn.js?1515598830"></script>
+    <script src="../js/hugo-learn.js?1515598830"></script>
 
-    <link href="../mermaid/mermaid.css?1515603382" type="text/css" rel="stylesheet" />
-    <script src="../mermaid/mermaid.js?1515603382"></script>
+    <link href="../mermaid/mermaid.css?1515598830" type="text/css" rel="stylesheet" />
+    <script src="../mermaid/mermaid.js?1515598830"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

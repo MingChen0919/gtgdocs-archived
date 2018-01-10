@@ -7,7 +7,23 @@
   </url>
   
   <url>
+    <loc>/develop-galaxy-tools/1-from-scratch/</loc>
+  </url>
+  
+  <url>
+    <loc>/develop-galaxy-tools/2-from-r-markdown-template/</loc>
+  </url>
+  
+  <url>
     <loc>/get-started/</loc>
+  </url>
+  
+  <url>
+    <loc>/develop-galaxy-tools/3-from-uploaded-xml/</loc>
+  </url>
+  
+  <url>
+    <loc>/gtg-development-workflow/</loc>
   </url>
   
   <url>
